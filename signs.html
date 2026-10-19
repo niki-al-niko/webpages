@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дорожные знаки</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+
+    <style>
+        .tooltip {
+            position: relative;
+        }
+        .tooltip .ui-tooltip {
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 5px;
+            z-index: 1;
+        }
+        img {
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Дорожные знаки</h1>
+
+    <p>
+        <img src="img/signs/1_1.svg" class="tooltip" data-hint="Железнодорожный переезд со шлагбаумом">
+        <img src="img/signs/1_2.svg" class="tooltip" data-hint="Железнодорожный переезд без шлагбаума">
+        <img src="img/signs/1_3_1.svg" class="tooltip" data-hint="Однопутная железная дорога">
+        <img src="img/signs/1_3_2.svg" class="tooltip" data-hint="Многопутная железная дорога">
+        <img src="img/signs/1_4_1.svg" class="tooltip" data-hint="Приближение к железнодорожному переезду">
+    </p>
+
+    <p>
+        <img src="img/signs/1_7.svg" class="tooltip" data-hint="Пересечение к круговым движением">
+        <img src="img/signs/1_8.svg" class="tooltip" data-hint="Светофорное регулирование">
+        <img src="img/signs/1_9.svg" class="tooltip" data-hint="Разводной мост">
+        <img src="img/signs/1_10.svg" class="tooltip" data-hint="Выезд на набережную">
+        <img src="img/signs/1_13.svg" class="tooltip" data-hint="Крутой спуск">
+    </p>
+
+    <p>
+        <img src="img/signs/1_21.svg" class="tooltip" data-hint="Двустороннее движение">
+        <img src="img/signs/1_22.svg" class="tooltip" data-hint="Пешеходный переход">
+        <img src="img/signs/1_23.svg" class="tooltip" data-hint="Дети">
+        <img src="img/signs/1_24.svg" class="tooltip" data-hint="Пересечение с велосипедной дорожкой или велопешеходной дорожкой">
+        <img src="img/signs/1_25.svg" class="tooltip" data-hint="Дорожные работы">
+    </p>
+
+    <script>
+        $(function () {
+            $(document).tooltip({
+                items: "img",
+                content: function () {
+                    var $element = $(this);
+                    if ($element.is("img")) {
+                        return $element.data("hint");
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
